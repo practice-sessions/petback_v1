@@ -186,7 +186,10 @@ apiRouter.get('/update', auth, async (req, res) => {
               contactnumber, 
               email, 
               password, 
-              //password2,
+              //password2, 
+              //vetname, 
+              //specialneeds, 
+              //age 
             } = req.body;
 
           try {
@@ -212,6 +215,9 @@ apiRouter.get('/update', auth, async (req, res) => {
               contactnumber,
               email,
               password
+              //vetname,
+              //specialneeds,
+              //age
               //avatar
             });
 
@@ -245,7 +251,7 @@ apiRouter.get('/update', auth, async (req, res) => {
                 res.json({ token });
               }); // Note: jwtSecret above is in config file' and '3h' used
                   // for expiration (in development), use 3600 in production 
-          
+                
         } catch(err) {
           console.error(err.message);
           res.status(500).send('Server error, something went wrong!');
