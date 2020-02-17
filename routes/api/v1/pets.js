@@ -1,13 +1,12 @@
 const express = require('express');
 const apiRouter = express.Router(); 
 
-const auth = require('../../../middleware/auth'); 
+const auth = require('../../../middleware/auth');  
 const { check, validationResult } = require('express-validator');
 
-const Pet = require('../../../models/v10/Pet');
-const OwnBio = require('../../../models/v10/OwnBio');
+const Pet = require('../../../models/v1/Pet');
+const OwnBio = require('../../../models/v1/OwnBio');
 const User = require('../../../models/v1/User');
-
 
 // @route   GET api/v10/pet/get-pet-doc 
 // @desc    Get current owner's pet data - not sure its needed
@@ -209,6 +208,5 @@ apiRouter.get('/all', auth, async (req, res) => {
     res.status(500).send('Server error, something went wrong!');
   }
 });
-
 
 module.exports = apiRouter; 
