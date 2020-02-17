@@ -107,4 +107,53 @@ apiRouter.post('/register',
   
 });
 
+  // @route   POST api/v1/users/update 
+  // @desc    Edit or update user data
+  // @access  Private 
+  apiRouter.get('/update', auth, async (req, res) => {
+    const { 
+      firstname,
+      lastname,
+      contactnumber, 
+      email,
+      avatar
+    } = req.body;
+  
+    const userFields = {}; 
+      
+    if(firstname) userFields.firstname = firstname;
+    if(lastname) userFields.lastname = lastname;
+    if(contactnumber) userFields.contactnumber = contactnumber;
+    if(email) userFields.email = email;
+    if(avatar) userFields.avatar = avatar;
+  
+    try {
+      let user = await 
+        User
+          .findOne({ user: req.user.id })
+          
+        if (!user) {
+          return res.status(400).json({msg: 'There is no user data!'});
+        } else if (user) {
+          // Update user data - where it already exists
+          //user = await User.update(
+          user = await User.findOneAndUpdate(
+            {user: req.user.id}, 
+            { $set: userFields },
+            { new: true }
+          );
+        }
+  
+        // Save user 
+        await user.save();
+    
+    } catch(err) {
+      console.error(err.message);
+      res.status(500).send('Server error, something went wrong!');
+    }
+    
+  });
+  
+  
+
 module.exports = apiRouter;
