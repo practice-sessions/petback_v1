@@ -7,12 +7,11 @@ const express = require('express');
 const apiRouter = express.Router({ mergeParams: true });
 
 const auth = require('../../../middleware/auth'); 
-const { check, validationResult } = require('express-validator');
+const { check, validationResult } = require('express-validator'); 
 
-const OwnBio = require('../../../models/v10/OwnBio');
+const OwnBio = require('../../../models/v1/OwnBio');
 const User = require('../../../models/v1/User');
-
-
+ 
 // @route   POST api/v10/ownbio 
 // @desc    Create owner bio data (instance)
 // @access  Private
@@ -235,10 +234,6 @@ apiRouter.put('/update', auth, async (req, res) => {
 });
 
 
-
-
-
-
 // @route   GET api/v10/ownbio/all 
 // @desc    Get all owners' bio data
 // @access  Private 
@@ -319,8 +314,6 @@ apiRouter.get('/owners-pet', auth, async (req, res) => {
 });
 
 
-
-
 // @route   DELETE api/v10/ownbio/delete 
 // @desc    Delete owner bio data [(and ToDo) delete pets data ] 
 // @access  Private 
@@ -352,10 +345,6 @@ apiRouter.delete('/delete', auth, async (req, res) => {
                         res.status(500).send('Server error, something went wrong!');
                       }
                     });
-
-
-
-
 
 
 // @route   POST api/v10/ownbio/address-to-bio // POST request used, rather than a  
@@ -423,6 +412,7 @@ apiRouter.post('/address-to-bio',
 
 });
 
+
 // @route   DELETE api/v10/ownbio/address/:addy_id
 // @desc    Delete address from owner bio 
 // @access  Private 
@@ -446,6 +436,7 @@ apiRouter.delete('/address/:addy_id', auth, async (req, res) => {
     res.status(500).send('Server error, something went wrong!');
   }
 });
+
 
       // @route   POST api/v10/ownbio/addpet-to-ownbio // POST request used, rather than a  
       // PUT although we are updating data in an existing collection - personal preference
@@ -606,9 +597,8 @@ apiRouter.delete('/delete-pet-pet', auth, async (req, res) => {
     
   } catch (err) {
     console.error(err.message);
-    res.status(500).send('Server error, something went wrong!');
+    res.status(500).send('Server error, something went wrong!'); 
   }
 });
-
 
 module.exports = apiRouter; 
