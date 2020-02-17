@@ -8,19 +8,6 @@ const { check, validationResult } = require('express-validator');
 
 const User = require('../../../models/v1/User'); 
 
-// @route   GET api/v1/auth
-// @desc    Get logged in user route 
-// @access  Private 
-apiRouter.get('/get-current-user', auth, async (req, res) => {
-  try {
-    const user = await User.findById(req.user.id).select('-password');
-    res.json(user); 
-
-  } catch(err) {
-    console.error(err.message);
-    res.status(500).send('Server error');
-  }
-});
 
 // @route   POST api/v1/auth  
 // @desc    Authenticate user with password, get token
@@ -32,8 +19,6 @@ apiRouter.post(
   [
     check('contactnumber', 'Your contact number is required')
     .isNumeric(),
-    //check('email', 'A valid email is required please').isEmail(),
-    //custom email validation method may be needed 
     check('password', 'Password is required please')
     .exists()
   ], 
