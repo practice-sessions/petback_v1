@@ -116,7 +116,7 @@ apiRouter.post('/register',
       lastname,
       contactnumber, 
       email,
-      avatar
+      //avatar
     } = req.body;
   
     const userFields = {}; 
