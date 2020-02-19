@@ -19,7 +19,7 @@ app.use('/api/v1/ownbio', require('./routes/api/v1/ownbio'));
 app.use('/api/v1/pets', require('./routes/api/v1/pets'));
 // app.use('/api/v1/todos', require('./routes/api/v1/todos'));
  
-const PORT = process.env.PORT || 5060;
+const PORT = process.env.PORT || 5070;
 
 // app.listen(PORT, () => {
 //   console.log('Server running on port ', PORT)

@@ -1,7 +1,7 @@
 {
-  "name": "test-run-petadmin_v2",
+  "name": "petback_v1",
   "version": "1.2.0",
-  "description": "Test Petman Admin on Heroku v2",
+  "description": "Test Petman Admin Backend API v1",
   "main": "server.js",
   "scripts": {
     "start": "node server",
