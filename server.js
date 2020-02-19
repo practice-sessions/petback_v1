@@ -21,8 +21,4 @@ app.use('/api/v1/pets', require('./routes/api/v1/pets'));
  
 const PORT = process.env.PORT || 5070;
 
-// app.listen(PORT, () => {
-//   console.log('Server running on port ', PORT)
-//});
-
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`)); 
