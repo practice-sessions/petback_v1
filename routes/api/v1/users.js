@@ -95,8 +95,8 @@ apiRouter.post('/register',
         { expiresIn: 3600 },
         (err, token) => {
           if (err) throw err;
-          res.json({ token });
-          //res.json(user);
+          //res.json({ token });
+          res.json(user);
         }); // Note: jwtSecret above is in config file' and 360000
             // used for expiration (in development), use 3600 in production - now changed!
 
