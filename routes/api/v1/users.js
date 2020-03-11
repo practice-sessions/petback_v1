@@ -55,6 +55,12 @@ apiRouter.post('/register',
   if(user) {
     return res.status(400).json({ errors: [{ msg: 'User already exists' }] });
   }
+
+  // else if (password !== password2) {
+  //   return res.status(400).json({ errors: [{ msg: 'Passwords do not match, please try again' }] });
+  //  // return null;
+  // }
+
     /*
     // Get users gravatar/pix if available 
     const avatar = gravatar.url(email, {

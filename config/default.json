@@ -1,4 +1,0 @@
-{
-  "mongoURI": "mongodb://hix:tester1@ds062178.mlab.com:62178/petadmin_v2",
-  "jwtSecret": "mvpsecrettoken"
-}
